@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>759</width>
+    <width>1000</width>
     <height>850</height>
    </rect>
   </property>
@@ -81,8 +81,7 @@ font: 75 20pt &quot;Segoe UI Variable Display&quot;;</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">border: 2px solid #FF9966; border-radius: 12px; padding-left: 15px;
-color: rgb(0, 0, 0);</string>
+        <string notr="true">border: 2px solid #FF9966; border-radius: 12px; padding-left: 15px;</string>
        </property>
        <property name="placeholderText">
         <string>Họ và tên *</string>
@@ -98,8 +97,7 @@ color: rgb(0, 0, 0);</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">border: 2px solid #FF9966; border-radius: 12px; padding-left: 15px;
-color: rgb(0, 0, 0);</string>
+        <string notr="true">border: 2px solid #FF9966; border-radius: 12px; padding-left: 15px;</string>
        </property>
        <property name="placeholderText">
         <string>Email *</string>
@@ -115,8 +113,7 @@ color: rgb(0, 0, 0);</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">border: 2px solid #FF9966; border-radius: 12px; padding-left: 15px;
-color: rgb(0, 0, 0);</string>
+        <string notr="true">border: 2px solid #FF9966; border-radius: 12px; padding-left: 15px;</string>
        </property>
        <property name="placeholderText">
         <string>Tên đăng nhập *</string>
@@ -132,8 +129,7 @@ color: rgb(0, 0, 0);</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">border: 2px solid #FF9966; border-radius: 12px; padding-left: 15px;
-color: rgb(0, 0, 0);</string>
+        <string notr="true">border: 2px solid #FF9966; border-radius: 12px; padding-left: 15px;</string>
        </property>
        <property name="echoMode">
         <enum>QLineEdit::Password</enum>
@@ -173,9 +169,6 @@ color: rgb(0, 0, 0);</string>
          <iconset>
           <normaloff>C:/Users/LENOVO/Downloads/bussiness-man.png</normaloff>C:/Users/LENOVO/Downloads/bussiness-man.png</iconset>
         </property>
-        <property name="checkable">
-         <bool>true</bool>
-        </property>
         <property name="checked">
          <bool>true</bool>
         </property>
@@ -198,11 +191,47 @@ color: rgb(0, 0, 0);</string>
         </property>
        </widget>
       </widget>
+      <widget class="QCheckBox" name="checkBoxTerms">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>510</y>
+         <width>400</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: #555; font-size: 10pt;</string>
+       </property>
+       <property name="text">
+        <string>Tôi đồng ý với mọi điều khoản và chính sách của New Year Photo</string>
+       </property>
+      </widget>
       <widget class="QPushButton" name="pushButtonRegister">
        <property name="geometry">
         <rect>
          <x>50</x>
-         <y>530</y>
+         <y>540</y>
+         <width>400</width>
+         <height>55</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonBack">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>610</y>
+         <width>400</width>
+         <height>30</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButtonRegister">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>560</y>
          <width>400</width>
          <height>55</height>
         </rect>
@@ -217,8 +246,8 @@ color: rgb(0, 0, 0);</string>
       <widget class="QPushButton" name="pushButtonBack">
        <property name="geometry">
         <rect>
-         <x>50</x>
-         <y>600</y>
+         <x>60</x>
+         <y>640</y>
          <width>400</width>
          <height>30</height>
         </rect>
