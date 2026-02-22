@@ -2,7 +2,7 @@ import sys
 import os
 import csv
 from PyQt6.QtWidgets import QApplication, QMainWindow, QMessageBox, QLineEdit
-from USER.Login.ui.loginMainWindow import Ui_MainWindow
+from loginMainWindow import Ui_MainWindow
 
 class LoginMainWindowEx(QMainWindow):
     def __init__(self):
@@ -24,10 +24,16 @@ class LoginMainWindowEx(QMainWindow):
         self.ui.eyeBtn.clicked.connect(self.toggle_password_visibility)
 
     def handle_login(self):
-        """Kiểm tra tài khoản và mật khẩu từ file CSV """
+        """Kiểm tra tài khoản, mật khẩu và điều khoản """
         email_input = self.ui.lineEditEmail.text().strip()
         password_input = self.ui.lineEditPass.text().strip()
 
+        # 1. KIỂM TRA NÚT TÍCH ĐIỀU KHOẢN (MỚI THÊM)
+        if not self.ui.checkBoxTerms.isChecked():
+            QMessageBox.warning(self, "Thông báo", "Bạn phải đồng ý với các điều khoản và chính sách để đăng nhập!")
+            return
+
+        # 2. Kiểm tra bỏ trống trường nhập liệu
         if not email_input or not password_input:
             QMessageBox.warning(self, "Thông báo", "Vui lòng nhập Email và Mật khẩu!")
             return
@@ -52,12 +58,6 @@ class LoginMainWindowEx(QMainWindow):
 
         if login_success:
             QMessageBox.information(self, "Thành công", f"Chào mừng {user_name}!")
-
-            from Home.MainWindowEx import MainWindowEx
-            self.main_win = MainWindowEx()
-            self.main_win.show()
-
-            self.close()
         else:
             QMessageBox.warning(self, "Thất bại", "Email hoặc Mật khẩu không đúng!")
 
