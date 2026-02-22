@@ -1,0 +1,50 @@
+[
+    {
+        "id": "KH001",
+        "name": "Trấn Thành",
+        "phone": "0908789999",
+        "email": "tranthanh@tt.com.vn",
+        "concept": "Chụp cưới",
+        "status": "Đã cọc",
+        "total_fee": 15000000.0,
+        "deposited": 500000.0,
+        "location": "Đà Lạt",
+        "photographer": "Hari Won",
+        "note": "Yêu cầu chụp ngoài trời",
+        "username": "tranthanhtown",
+        "password": "12345",
+        "last_login": ""
+    },
+    {
+        "id": "KH002",
+        "name": "Trường Giang",
+        "phone": "0809789666",
+        "email": "truonggiang@giangtr.vn",
+        "concept": "Chụp gia đình",
+        "status": "Đã xác nhận",
+        "total_fee": 800000.0,
+        "deposited": 0.0,
+        "location": "TP. Hồ Chí Minh",
+        "photographer": "Nhã Phương",
+        "note": "Chụp trong studio",
+        "username": "gianggiang",
+        "password": "78910",
+        "last_login": ""
+    },
+    {
+        "id": "KH003",
+        "name": "Victor Vũ",
+        "phone": "0789222444",
+        "email": "victorvu@vuvic.vn",
+        "concept": "Phóng sự sự kiện",
+        "status": "Đã hủy",
+        "total_fee": 12000000.0,
+        "deposited": 200000.0,
+        "location": "Hà Nội",
+        "photographer": "Ngọc Diệp",
+        "note": "Khách hủy do đổi lịch",
+        "username": "victor",
+        "password": "vuvic123",
+        "last_login": ""
+    }
+]
