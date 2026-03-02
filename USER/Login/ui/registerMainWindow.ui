@@ -38,10 +38,10 @@
       <widget class="QLabel" name="logoLabel">
        <property name="geometry">
         <rect>
-         <x>200</x>
-         <y>30</y>
-         <width>100</width>
-         <height>100</height>
+         <x>189</x>
+         <y>19</y>
+         <width>121</width>
+         <height>121</height>
         </rect>
        </property>
        <property name="pixmap">
@@ -60,9 +60,18 @@
          <height>40</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Rockwell Extra Bold</family>
+         <pointsize>24</pointsize>
+         <weight>10</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+        </font>
+       </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(165, 54, 27);
-font: 75 20pt &quot;Segoe UI Variable Display&quot;;</string>
+        <string notr="true">color: rgb(165, 54, 27); font: 75 20pt &quot;Segoe UI Variable Display&quot;;
+font: 81 24pt &quot;Rockwell Extra Bold&quot;;</string>
        </property>
        <property name="text">
         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt; font-weight:600;&quot;&gt;New Year Photo&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -169,9 +178,6 @@ font: 75 20pt &quot;Segoe UI Variable Display&quot;;</string>
          <iconset>
           <normaloff>C:/Users/LENOVO/Downloads/bussiness-man.png</normaloff>C:/Users/LENOVO/Downloads/bussiness-man.png</iconset>
         </property>
-        <property name="checked">
-         <bool>true</bool>
-        </property>
        </widget>
        <widget class="QRadioButton" name="radFemale">
         <property name="geometry">
@@ -195,7 +201,7 @@ font: 75 20pt &quot;Segoe UI Variable Display&quot;;</string>
        <property name="geometry">
         <rect>
          <x>50</x>
-         <y>510</y>
+         <y>515</y>
          <width>400</width>
          <height>25</height>
         </rect>
@@ -205,26 +211,6 @@ font: 75 20pt &quot;Segoe UI Variable Display&quot;;</string>
        </property>
        <property name="text">
         <string>Tôi đồng ý với mọi điều khoản và chính sách của New Year Photo</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButtonRegister">
-       <property name="geometry">
-        <rect>
-         <x>50</x>
-         <y>540</y>
-         <width>400</width>
-         <height>55</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButtonBack">
-       <property name="geometry">
-        <rect>
-         <x>50</x>
-         <y>610</y>
-         <width>400</width>
-         <height>30</height>
-        </rect>
        </property>
       </widget>
       <widget class="QPushButton" name="pushButtonRegister">
