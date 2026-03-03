@@ -63,5 +63,18 @@
         "place_detail": "Dĩ An",
         "note": "",
         "service": "Make-up + Làm tóc"
+    },
+    {
+        "date": "20/04/2026",
+        "time": "13:00",
+        "name": "Hồng Trân",
+        "email": "tranchau@gmail.com",
+        "phone": "0947284758",
+        "concept": "Sự kiện",
+        "background": "Ngoài trời",
+        "place": "TP.Hồ Chí Minh",
+        "place_detail": "",
+        "note": "",
+        "service": "Make-up + Làm tóc"
     }
 ]
