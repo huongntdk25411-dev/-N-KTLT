@@ -1,7 +1,10 @@
 import json
 import os
+import re
+
+from PyQt6.QtGui import QTextCharFormat, QColor, QIntValidator
 from PyQt6.QtWidgets import QMessageBox
-from PyQt6.QtCore import QDate
+from PyQt6.QtCore import QDate, Qt
 
 # Đường dẫn database
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -15,6 +18,8 @@ class Booking:
         self.path = DATABASE_PATH
         self.setupSignalAndSlot()
         self.loadTimelineByDate()
+        self.setupCalendar()
+        self.markBookingDays()
 
     def setupSignalAndSlot(self):
         # Kết nối các nút bấm và sự kiện (Dùng self.mw)
@@ -22,6 +27,15 @@ class Booking:
         self.mw.calendarWidget.selectionChanged.connect(self.syncCalendarToDateEdit)
         self.mw.dateEdit.dateChanged.connect(self.syncDateEditToCalendar)
         self.mw.dateEdit.dateChanged.connect(self.loadTimelineByDate)
+
+        # Auto format name
+        self.mw.lineEditName.editingFinished.connect(self.autoCapitalizeName)
+
+        # Email lowercase
+        self.mw.lineEditEmail.editingFinished.connect(self.autoLowerEmail)
+
+        # SĐT chỉ có số
+        self.mw.lineEditPhone.setValidator(QIntValidator())
 
     def syncCalendarToDateEdit(self):
         selected_date = self.mw.calendarWidget.selectedDate()
@@ -133,3 +147,69 @@ class Booking:
         self.mw.comboBoxConcept.setCurrentIndex(0)
         if hasattr(self.mw, 'comboBoxPlace'):
             self.mw.comboBoxPlace.setCurrentIndex(0)
+
+    #Code bổ sung
+
+    def setupCalendar(self):
+        cal = self.mw.calendarWidget
+
+        # Ẩn cột số tuần
+        cal.setVerticalHeaderFormat(cal.VerticalHeaderFormat.NoVerticalHeader)
+
+        # Font
+        font = cal.font()
+        font.setPointSize(10)
+        cal.setFont(font)
+
+        # Weekend background
+        weekend_format = QTextCharFormat()
+        weekend_format.setBackground(QColor("#F5E7D6"))
+
+        cal.setWeekdayTextFormat(Qt.DayOfWeek.Saturday, weekend_format)
+        cal.setWeekdayTextFormat(Qt.DayOfWeek.Sunday, weekend_format)
+
+        # Weekday background
+        weekday_format = QTextCharFormat()
+        weekday_format.setBackground(QColor("#FFF5EB"))
+
+        cal.setWeekdayTextFormat(Qt.DayOfWeek.Monday, weekday_format)
+        cal.setWeekdayTextFormat(Qt.DayOfWeek.Tuesday, weekday_format)
+        cal.setWeekdayTextFormat(Qt.DayOfWeek.Wednesday, weekday_format)
+        cal.setWeekdayTextFormat(Qt.DayOfWeek.Thursday, weekday_format)
+        cal.setWeekdayTextFormat(Qt.DayOfWeek.Friday, weekday_format)
+
+        # Today highlight
+        today = QDate.currentDate()
+
+        today_format = QTextCharFormat()
+        today_format.setBackground(QColor("#FFE4D6"))
+        today_format.setForeground(QColor("#000000"))
+
+        cal.setDateTextFormat(today, today_format)
+
+    def markBookingDays(self):
+        cal = self.mw.calendarWidget
+        bookings = self.readData()
+
+        format_booking = QTextCharFormat()
+        format_booking.setForeground(QColor("red"))
+
+        for b in bookings:
+            date_str = b.get("date")
+            qdate = QDate.fromString(date_str, "dd/MM/yyyy")
+
+            if qdate.isValid():
+                format_booking.setToolTip("Có lịch đặt")
+                cal.setDateTextFormat(qdate, format_booking)
+
+    def autoCapitalizeName(self): #Cái nì t thêm để nó tự chỉnh nếu chữ cái đầu k viết hoa
+        name = self.mw.lineEditName.text().strip()
+            # bỏ số nếu có
+        name = re.sub(r'\d+', '', name)
+            # viết hoa từng chữ
+        name = " ".join(word.capitalize() for word in name.split())
+        self.mw.lineEditName.setText(name)
+
+    def autoLowerEmail(self):
+        email = self.mw.lineEditEmail.text().strip().lower()
+        self.mw.lineEditEmail.setText(email)
