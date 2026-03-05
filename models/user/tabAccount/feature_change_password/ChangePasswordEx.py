@@ -1,7 +1,10 @@
 import csv
 from pathlib import Path
-from PyQt6.QtWidgets import QMainWindow, QMessageBox
-from models.user.tabAccount.ChangePasswordMainwindow import Ui_MainWindow
+
+from PyQt6.QtGui import QIcon
+from PyQt6.QtWidgets import QMainWindow, QMessageBox, QLineEdit
+
+from models.user.tabAccount.feature_change_password.ChangePasswordMainwindow import Ui_MainWindow
 
 
 class ChangePasswordEx(QMainWindow):
@@ -13,40 +16,36 @@ class ChangePasswordEx(QMainWindow):
         self.user_email = user_email
 
         # Ẩn mật khẩu
-        self.ui.lineEditOldPass.setEchoMode(
-            self.ui.lineEditOldPass.EchoMode.Password
-        )
-        self.ui.lineEditNewPass.setEchoMode(
-            self.ui.lineEditNewPass.EchoMode.Password
-        )
-        self.ui.lineEditNewPass_2.setEchoMode(
-            self.ui.lineEditNewPass_2.EchoMode.Password
-        )
+        self.ui.lineEditOldPass.setEchoMode(self.ui.lineEditOldPass.EchoMode.Password)
+        self.ui.lineEditNewPass.setEchoMode(self.ui.lineEditNewPass.EchoMode.Password)
+        self.ui.lineEditNewPass_2.setEchoMode(self.ui.lineEditNewPass_2.EchoMode.Password)
+        #open-hide pass
+        self.setup_password_toggle(self.ui.lineEditNewPass)
+        self.setup_password_toggle(self.ui.lineEditOldPass)
+        self.setup_password_toggle(self.ui.lineEditNewPass_2)
 
         # Tìm đường dẫn datasets
         current_path = Path(__file__).resolve()
         PROJECT_ROOT = None
         for parent in current_path.parents:
-            if (parent / "datasets").exists():
+            if (parent/"datasets").exists():
                 PROJECT_ROOT = parent
                 break
 
-        self.csv_path = PROJECT_ROOT / "datasets" / "customerin4.csv"
+        self.csv_path = PROJECT_ROOT /"datasets" /"customerin4.csv"
 
         # Connect
         self.ui.btnConfirm.clicked.connect(self.change_password)
         self.ui.btnCancel.clicked.connect(self.close)
 
-    # ==================================================
-    # HÀM ĐỔI MẬT KHẨU
-    # ==================================================
+    # change pass
     def change_password(self):
         try:
             old_pass = self.ui.lineEditOldPass.text().strip()
             new_pass = self.ui.lineEditNewPass.text().strip()
             confirm_pass = self.ui.lineEditNewPass_2.text().strip()
 
-            # 1️⃣ Kiểm tra nhập đầy đủ
+            # TH1: Kiểm tra nhập đầy đủ hay chưa
             if not old_pass or not new_pass or not confirm_pass:
                 QMessageBox.warning(
                     self,
@@ -69,7 +68,7 @@ class ChangePasswordEx(QMainWindow):
 
                         stored_pass = (row.get("Mật khẩu") or "").strip()
 
-                        # 2️⃣ Kiểm tra mật khẩu cũ
+                        # TH: Kiểm tra mật khẩu cũ
                         if stored_pass != old_pass:
                             QMessageBox.warning(
                                 self,
@@ -78,7 +77,7 @@ class ChangePasswordEx(QMainWindow):
                             )
                             return
 
-                        # 3️⃣ Mật khẩu mới trùng mật khẩu cũ
+                        # TH: Mật khẩu mới trùng mật khẩu cũ
                         if new_pass == stored_pass:
                             QMessageBox.warning(
                                 self,
@@ -87,7 +86,7 @@ class ChangePasswordEx(QMainWindow):
                             )
                             return
 
-                        # 4️⃣ Xác nhận không khớp
+                        # Xác nhận không khớp
                         if new_pass != confirm_pass:
                             QMessageBox.warning(
                                 self,
@@ -96,7 +95,7 @@ class ChangePasswordEx(QMainWindow):
                             )
                             return
 
-                        # Nếu hợp lệ → cập nhật
+                        # Nếu hợp lệ -> cập nhật
                         row["Mật khẩu"] = new_pass
                         updated = True
 
@@ -126,3 +125,25 @@ class ChangePasswordEx(QMainWindow):
 
         except Exception as e:
             QMessageBox.critical(self, "Crash", str(e))
+
+    def setup_password_toggle(self, line_edit):
+        icon_hidden_path="D:/-N-KTLT/images/ic_hide.png"
+
+        # Thêm icon vào góc bên phải của ô nhập liệu (TrailingPosition)
+        action = line_edit.addAction(QIcon(icon_hidden_path), QLineEdit.ActionPosition.TrailingPosition)
+
+        # Kết nối sự kiện click vào icon với hàm toggle
+        action.triggered.connect(lambda: self.toggle_password_visibility(line_edit, action))
+
+    def toggle_password_visibility(self, line_edit, action):
+        icon_open_path = "D:/-N-KTLT/images/ic_open.png"
+        icon_hidden_path="D:/-N-KTLT/images/ic_hide.png"
+
+        # Nếu đang ẩn -> Chuyển sang hiện và đổi icon thành mắt mở
+        if line_edit.echoMode() == QLineEdit.EchoMode.Password:
+            line_edit.setEchoMode(QLineEdit.EchoMode.Normal)
+            action.setIcon(QIcon(icon_open_path))
+        # Nếu đang hiện -> Chuyển sang ẩn và đổi icon thành mắt nhắm
+        else:
+            line_edit.setEchoMode(QLineEdit.EchoMode.Password)
+            action.setIcon(QIcon(icon_hidden_path))

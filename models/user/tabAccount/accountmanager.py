@@ -1,7 +1,7 @@
 import csv
 from pathlib import Path
 from PyQt6.QtWidgets import QMessageBox
-from models.user.tabAccount.ChangePasswordEx import ChangePasswordEx
+from models.user.tabAccount.feature_change_password.ChangePasswordEx import ChangePasswordEx
 
 
 class AccountManager:
