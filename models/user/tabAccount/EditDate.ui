@@ -1,0 +1,784 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1208</width>
+    <height>878</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>15</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>10</y>
+      <width>391</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bauhaus 93</family>
+      <pointsize>30</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#aa0000;&quot;&gt;New Year Photo&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>60</y>
+      <width>261</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Đặt lịch chụp ảnh</string>
+    </property>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>100</y>
+      <width>981</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>110</y>
+      <width>1171</width>
+      <height>611</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QWidget" name="widget" native="true">
+       <widget class="QGroupBox" name="groupBoxInformation_2">
+        <property name="geometry">
+         <rect>
+          <x>720</x>
+          <y>10</y>
+          <width>441</width>
+          <height>591</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string/>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QLabel" name="labelCalendar">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Tháng/Năm</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCalendarWidget" name="calendarWidget">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="minimumDate">
+            <date>
+             <year>2000</year>
+             <month>9</month>
+             <day>1</day>
+            </date>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="labelTimeline">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Timeline ngày đặt</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QListWidget" name="listWidgetTimeline">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QScrollArea" name="scrollArea">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>701</width>
+          <height>591</height>
+         </rect>
+        </property>
+        <property name="widgetResizable">
+         <bool>true</bool>
+        </property>
+        <widget class="QWidget" name="scrollAreaWidgetContents_2">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>699</width>
+           <height>589</height>
+          </rect>
+         </property>
+         <widget class="QGroupBox" name="groupBox">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>671</width>
+            <height>151</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="title">
+           <string>Thông tin chung</string>
+          </property>
+          <layout class="QFormLayout" name="formLayout">
+           <item row="0" column="0">
+            <widget class="QLabel" name="labelName">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Nhập tên</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="lineEditName">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="placeholderText">
+              <string>Trần Văn A</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="labelEmail">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Email</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="lineEditEmail">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="labelPhone">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Số điện thoại</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="lineEditPhone">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="maxLength">
+              <number>10</number>
+             </property>
+             <property name="cursorPosition">
+              <number>0</number>
+             </property>
+             <property name="placeholderText">
+              <string/>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QGroupBox" name="groupBoxInformation">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>170</y>
+            <width>670</width>
+            <height>351</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="title">
+           <string>Chi tiết phiếu chụp</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout">
+           <item row="1" column="2">
+            <widget class="QLabel" name="labelTime">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Giờ chụp</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLabel" name="labelDate">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Ngày chụp</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="4">
+            <widget class="QRadioButton" name="radioButtonService1">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Make-up+Làm tóc</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="labelPlace2">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Địa điểm cụ thể</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLineEdit" name="lineEditPlace2">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="maxLength">
+              <number>10</number>
+             </property>
+             <property name="cursorPosition">
+              <number>0</number>
+             </property>
+             <property name="placeholderText">
+              <string>Nhập địa điểm cụ thể </string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="labelPlace">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Địa điểm</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3" colspan="2">
+            <widget class="QDateEdit" name="dateEdit">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="date">
+              <date>
+               <year>2026</year>
+               <month>1</month>
+               <day>1</day>
+              </date>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="labelConcept_2">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Bối cảnh</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3" colspan="2">
+            <widget class="QTimeEdit" name="timeEdit">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="4">
+            <widget class="QRadioButton" name="radioButtonService1_3">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Khác</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QComboBox" name="comboBoxConcept_2">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="currentText">
+              <string>Tư vấn</string>
+             </property>
+             <property name="frame">
+              <bool>true</bool>
+             </property>
+             <item>
+              <property name="text">
+               <string>Tư vấn</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Ngoài trời</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Studio</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QComboBox" name="comboBoxConceptPlace">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="currentText">
+              <string>TP.Hồ Chí Minh</string>
+             </property>
+             <property name="frame">
+              <bool>true</bool>
+             </property>
+             <item>
+              <property name="text">
+               <string>TP.Hồ Chí Minh</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>An Giang</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Bắc Ninh</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Cà Mau</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Cao Bằng</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Đắk Lắk </string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Điện Biên</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Đồng Nai</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Đồng Tháp</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Gia Lai</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Hà Tĩnh</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Hưng Yên</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Khánh Hòa</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Lai Châu</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Lâm Đồng</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Lạng Sơn</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Lào Cai</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Nghệ An</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Ninh Bình</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Phú Thọ</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Quảng Ngãi</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Quảng Ninh</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Quảng Trị</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Sơn La</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Tây Ninh</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Thái Nguyên</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Thanh Hóa</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>TP.Cần Thơ</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>TP.Đà Nẵng</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>TP.Hà Nội</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>TP.Huế</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Tuyên Quang</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vĩnh Long</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="2" column="2" colspan="2">
+            <widget class="QLabel" name="labelService">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Dịch vụ đi kèm</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="labelConcept">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Concept</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QComboBox" name="comboBoxConcept">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="currentText">
+              <string>Tư vấn</string>
+             </property>
+             <property name="frame">
+              <bool>true</bool>
+             </property>
+             <item>
+              <property name="text">
+               <string>Tư vấn</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Cá nhân</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Gia đình</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Cặp đôi</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Sự kiện</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>HSSV(Kỷ yếu, Tốt nghiệp,..)</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Ảnh nhóm</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Ảnh thẻ</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="4" column="1" colspan="4">
+            <widget class="QTextEdit" name="textEditNote">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="html">
+              <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:7.8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="placeholderText">
+              <string>Bạn có yêu cầu gì cho buổi chụp không?</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="labelNote">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Ghi chú</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QPushButton" name="pushButtonBook">
+          <property name="geometry">
+           <rect>
+            <x>230</x>
+            <y>530</y>
+            <width>236</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>MS Shell Dlg 2</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Đặt lịch</string>
+          </property>
+         </widget>
+        </widget>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1208</width>
+     <height>18</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
