@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'D:\NAM_1\Kythuatlaptrinh\K25411_KTLT\dang_nhap\ui\forgotPasswordMainWindow.ui'
+# Form implementation generated from reading ui_Account file 'D:\NAM_1\Kythuatlaptrinh\K25411_KTLT\dang_nhap\ui_Account\forgotPasswordMainWindow.ui_Account'
 #
 # Created by: PyQt6 UI code generator 6.10.2
 #

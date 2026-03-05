@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'D:\NAM_1\Kythuatlaptrinh\K25411_KTLT\dang_nhap\ui\registerMainWindow.ui'
+# Form implementation generated from reading ui_Account file 'D:\NAM_1\Kythuatlaptrinh\K25411_KTLT\dang_nhap\ui_Account\registerMainWindow.ui_Account'
 #
 # Created by: PyQt6 UI code generator 6.10.2
 #
@@ -25,7 +25,7 @@ class Ui_MainWindow(object):
         self.registerCard.setObjectName("registerCard")
         self.logoLabel = QtWidgets.QLabel(parent=self.registerCard)
         self.logoLabel.setGeometry(QtCore.QRect(200, 30, 100, 100))
-        self.logoLabel.setPixmap(QtGui.QPixmap("D:\\NAM_1\\Kythuatlaptrinh\\K25411_KTLT\\dang_nhap\\ui\\../images/logo.png"))
+        self.logoLabel.setPixmap(QtGui.QPixmap("D:\\NAM_1\\Kythuatlaptrinh\\K25411_KTLT\\dang_nhap\\ui_Account\\../images/logo.png"))
         self.logoLabel.setScaledContents(True)
         self.logoLabel.setObjectName("logoLabel")
         self.titleLabel = QtWidgets.QLabel(parent=self.registerCard)

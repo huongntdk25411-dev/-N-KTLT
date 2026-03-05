@@ -1,7 +1,8 @@
 import csv
 from pathlib import Path
 from PyQt6.QtWidgets import QMessageBox
-from models.user.tabAccount.ChangePasswordEx import ChangePasswordEx
+
+from models.user.tabAccount.feature_change_password.ChangePasswordEx import ChangePasswordEx
 
 
 class AccountManager:
@@ -21,23 +22,18 @@ class AccountManager:
         if PROJECT_ROOT is None:
             raise Exception("Không tìm thấy thư mục datasets")
 
-        self.csv_path = PROJECT_ROOT / "datasets" / "customerin4.csv"
+        self.csv_path = PROJECT_ROOT/"datasets" /"customerin4.csv"
 
         self.setup_connections()
 
-        # ⭐ KIỂM TRA TAB HIỆN TẠI NGAY KHI MỞ
+        # check tab when opening
         self.check_current_tab_on_start()
 
-    # ==============================
-    # KẾT NỐI SIGNAL
-    # ==============================
+    # connect signal
     def setup_connections(self):
         self.mw.tabAccount_2.currentChanged.connect(self.check_tab_change)
         self.mw.btnUpdatePass.clicked.connect(self.open_change_password)
 
-    # ==============================
-    # KIỂM TRA TAB KHI MỞ CHƯƠNG TRÌNH
-    # ==============================
     def check_current_tab_on_start(self):
         current_index = self.mw.tabAccount_2.currentIndex()
         tab_text = self.mw.tabAccount_2.tabText(current_index)
@@ -45,18 +41,14 @@ class AccountManager:
         if "Information" in tab_text or "Thông tin" in tab_text:
             self.load_user_information()
 
-    # ==============================
-    # KHI CHUYỂN TAB
-    # ==============================
+    # tab change
     def check_tab_change(self, index):
         tab_text = self.mw.tabAccount_2.tabText(index)
 
         if "Information" in tab_text or "Thông tin" in tab_text:
             self.load_user_information()
 
-    # ==============================
-    # LOAD THÔNG TIN TỪ CSV
-    # ==============================
+    # load info from csv
     def load_user_information(self):
         if not self.csv_path.exists():
             QMessageBox.critical(

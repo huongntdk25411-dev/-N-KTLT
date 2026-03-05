@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>701</width>
-    <height>731</height>
+    <height>657</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -87,8 +87,8 @@
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>1028</width>
-                     <height>567</height>
+                     <width>624</width>
+                     <height>365</height>
                     </rect>
                    </property>
                    <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -1022,20 +1022,63 @@ p, li { white-space: pre-wrap; }
        <attribute name="title">
         <string>Trang cá nhân</string>
        </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_6" stretch="1,5">
+       <layout class="QVBoxLayout" name="verticalLayout_6">
         <item>
-         <widget class="QLabel" name="label">
+         <layout class="QHBoxLayout" name="horizontalLayout_7">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="maximumSize">
+             <size>
+              <width>500</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 237, 199);</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>../images/user_account2.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelUserName">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>50</height>
+           </size>
+          </property>
           <property name="font">
            <font>
-            <family>Bahnschrift</family>
-            <pointsize>40</pointsize>
+            <family>UTM Avo</family>
+            <pointsize>-1</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
            </font>
           </property>
           <property name="styleSheet">
-           <string notr="true">color: #aa0000;</string>
+           <string notr="true">color: #c40c0c; font-size: 15px;font-weight: bold; font-family: &quot;UTM Avo&quot;;</string>
           </property>
           <property name="text">
-           <string>NEW YEAR PHOTO</string>
+           <string>Tên hồ sơ người dùng</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -1044,9 +1087,35 @@ p, li { white-space: pre-wrap; }
         </item>
         <item>
          <widget class="QTabWidget" name="tabAccount_2">
+          <property name="font">
+           <font>
+            <family>UTM Avo</family>
+            <pointsize>12</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true">QTabWidget::tab-bar {
     alignment: center;
+}
+QTabBar::tab {
+    background-color: #f5f5f5;
+    color: #666666;
+    padding: 8px 15px;
+font-family: &quot;UTM Avo&quot;;
+    font-size: 14px;   
+    font-weight: bold;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin-right: 3px;
+    min-height: 20px;  
+min-width: 150px
+}
+QTabBar::tab:selected {
+    background-color: #FF6500;
+    color: #ffffff;
+    border-bottom: 2px solid #aa0000;
 }</string>
           </property>
           <property name="currentIndex">
@@ -1056,176 +1125,492 @@ p, li { white-space: pre-wrap; }
            <attribute name="title">
             <string>Thông tin cá nhân</string>
            </attribute>
-           <widget class="QLabel" name="label_2">
-            <property name="geometry">
-             <rect>
-              <x>30</x>
-              <y>50</y>
-              <width>91</width>
-              <height>31</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>Họ và tên</string>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_3">
-            <property name="geometry">
-             <rect>
-              <x>30</x>
-              <y>140</y>
-              <width>91</width>
-              <height>31</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>Email</string>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_4">
-            <property name="geometry">
-             <rect>
-              <x>30</x>
-              <y>230</y>
-              <width>91</width>
-              <height>31</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>SĐT</string>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="btnUpdate">
-            <property name="geometry">
-             <rect>
-              <x>190</x>
-              <y>380</y>
-              <width>211</width>
-              <height>41</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="layoutDirection">
-             <enum>Qt::LeftToRight</enum>
-            </property>
-            <property name="text">
-             <string>Cập nhật thông tin</string>
-            </property>
-           </widget>
-           <widget class="QLabel" name="lblName">
-            <property name="geometry">
-             <rect>
-              <x>30</x>
-              <y>90</y>
-              <width>471</width>
-              <height>16</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-           <widget class="QLabel" name="lblEmail">
-            <property name="geometry">
-             <rect>
-              <x>30</x>
-              <y>180</y>
-              <width>471</width>
-              <height>16</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-           <widget class="QLabel" name="lblPhone">
-            <property name="geometry">
-             <rect>
-              <x>30</x>
-              <y>270</y>
-              <width>471</width>
-              <height>16</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <item>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>210</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_7">
+              <item>
+               <widget class="QLabel" name="label_2">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>UTM Avo</family>
+                  <pointsize>11</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: #666666;font-size: 12</string>
+                </property>
+                <property name="text">
+                 <string>Họ và tên</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lblName">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>UTM Avo</family>
+                  <pointsize>-1</pointsize>
+                  <weight>50</weight>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: #222222;font-size: 14px;font-weight: normal;background-color: #f9f9f9;border: 1px solid #e0e0e0; border-radius: 5px;padding: 5px 10px;font-family: &quot;UTM Avo&quot;;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_6">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>UTM Avo</family>
+                  <pointsize>11</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: #666666;font-size: 12</string>
+                </property>
+                <property name="text">
+                 <string>Ngày sinh</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lblDOB">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>UTM Avo</family>
+                  <pointsize>-1</pointsize>
+                  <weight>50</weight>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: #222222;font-size: 14px;font-weight: normal;background-color: #f9f9f9;border: 1px solid #e0e0e0; border-radius: 5px;padding: 5px 10px;font-family: &quot;UTM Avo&quot;;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_3">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>UTM Avo</family>
+                  <pointsize>11</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: #666666;font-size: 12</string>
+                </property>
+                <property name="text">
+                 <string>Email</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lblEmail">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>UTM Avo</family>
+                  <pointsize>-1</pointsize>
+                  <weight>50</weight>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: #222222;font-size: 14px;font-weight: normal;background-color: #f9f9f9;border: 1px solid #e0e0e0; border-radius: 5px;padding: 5px 10px;font-family: &quot;UTM Avo&quot;;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_8">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>UTM Avo</family>
+                  <pointsize>11</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: #666666;font-size: 12</string>
+                </property>
+                <property name="text">
+                 <string>Giới tính</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lblGender">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>UTM Avo</family>
+                  <pointsize>-1</pointsize>
+                  <weight>50</weight>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: #222222;font-size: 14px;font-weight: normal;background-color: #f9f9f9;border: 1px solid #e0e0e0; border-radius: 5px;padding: 5px 10px;font-family: &quot;UTM Avo&quot;;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_4">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>UTM Avo</family>
+                  <pointsize>11</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: #666666;font-size: 12</string>
+                </property>
+                <property name="text">
+                 <string>SĐT</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lblPhone">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>UTM Avo</family>
+                  <pointsize>-1</pointsize>
+                  <weight>50</weight>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: #222222;font-size: 14px;font-weight: normal;background-color: #f9f9f9;border: 1px solid #e0e0e0; border-radius: 5px;padding: 5px 10px;font-family: &quot;UTM Avo&quot;;</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnUpdate">
+                <property name="minimumSize">
+                 <size>
+                  <width>200</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>300</width>
+                  <height>40</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>UTM Avo</family>
+                  <pointsize>-1</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="layoutDirection">
+                 <enum>Qt::LeftToRight</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color:#ffc100;color: white;border-radius: 8px;padding: 10px 15px;font-size: 15px;font-weight: bold;font-family:&quot;UTM Avo&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>Cập nhật thông tin</string>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/ic_update.png</normaloff>../images/ic_update.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>18</width>
+                  <height>16</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>210</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
           </widget>
           <widget class="QWidget" name="tab_2">
            <attribute name="title">
             <string>Tài khoản</string>
            </attribute>
-           <widget class="QPushButton" name="btnUpdatePass">
-            <property name="geometry">
-             <rect>
-              <x>140</x>
-              <y>70</y>
-              <width>151</width>
-              <height>41</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>Đổi mật khẩu</string>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="btnDeleteAccount">
-            <property name="geometry">
-             <rect>
-              <x>440</x>
-              <y>70</y>
-              <width>151</width>
-              <height>41</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <pointsize>10</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>Xoá tài khoản</string>
-            </property>
-           </widget>
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <item>
+             <spacer name="horizontalSpacer_3">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>200</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_9">
+              <item>
+               <widget class="QPushButton" name="btnUpdatePass">
+                <property name="minimumSize">
+                 <size>
+                  <width>200</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>300</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>UTM Avo</family>
+                  <pointsize>-1</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: #ffffff; color: #ffc100; border: 2px solid #ffc100; border-radius: 8px; padding: 10px 15px; font-weight: bold; font-family: &quot;UTM Avo&quot;; font-size: 17px;</string>
+                </property>
+                <property name="text">
+                 <string>Đổi mật khẩu</string>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/ic_password.png</normaloff>../images/ic_password.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>15</width>
+                  <height>15</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnDeleteAccount">
+                <property name="minimumSize">
+                 <size>
+                  <width>200</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>300</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="sizeIncrement">
+                 <size>
+                  <width>200</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>UTM Avo</family>
+                  <pointsize>-1</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: #ffffff; color: #ff6500; border: 2px solid #ff6500; border-radius: 8px; padding: 10px 15px; font-weight: bold; font-family: &quot;UTM Avo&quot;; font-size: 17px;</string>
+                </property>
+                <property name="text">
+                 <string>Xoá tài khoản</string>
+                </property>
+                <property name="icon">
+                 <iconset>
+                  <normaloff>../images/ic_delete_acc.png</normaloff>../images/ic_delete_acc.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>18</width>
+                  <height>18</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_3">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>300</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_4">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>200</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
           </widget>
          </widget>
         </item>

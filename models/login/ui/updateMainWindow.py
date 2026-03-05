@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'D:\NAM_1\Kythuatlaptrinh\K25411_KTLT\dang_nhap\ui\updateMainWindow.ui'
+# Form implementation generated from reading ui_Account file 'D:\NAM_1\Kythuatlaptrinh\K25411_KTLT\dang_nhap\ui_Account\updateMainWindow.ui_Account'
 #
 # Created by: PyQt6 UI code generator 6.10.2
 #
@@ -32,7 +32,7 @@ class Ui_AdminSettingsWindow(object):
         self.logoLabel = QtWidgets.QLabel(parent=self.mainCard)
         self.logoLabel.setMinimumSize(QtCore.QSize(150, 150))
         self.logoLabel.setMaximumSize(QtCore.QSize(150, 150))
-        self.logoLabel.setPixmap(QtGui.QPixmap("D:\\NAM_1\\Kythuatlaptrinh\\K25411_KTLT\\dang_nhap\\ui\\../images/logo.png"))
+        self.logoLabel.setPixmap(QtGui.QPixmap("D:\\NAM_1\\Kythuatlaptrinh\\K25411_KTLT\\dang_nhap\\ui_Account\\../images/logo.png"))
         self.logoLabel.setScaledContents(True)
         self.logoLabel.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.logoLabel.setObjectName("logoLabel")

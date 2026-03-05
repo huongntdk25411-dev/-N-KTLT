@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'D:\NAM_1\Kythuatlaptrinh\K25411_KTLT\dang_nhap\ui\verifyOTPMainWindow.ui'
+# Form implementation generated from reading ui_Account file 'D:\NAM_1\Kythuatlaptrinh\K25411_KTLT\dang_nhap\ui_Account\verifyOTPMainWindow.ui_Account'
 #
 # Created by: PyQt6 UI code generator 6.10.2
 #
@@ -25,7 +25,7 @@ class Ui_MainWindow(object):
         self.otpCard.setObjectName("otpCard")
         self.logoLabel = QtWidgets.QLabel(parent=self.otpCard)
         self.logoLabel.setGeometry(QtCore.QRect(150, 30, 100, 100))
-        self.logoLabel.setPixmap(QtGui.QPixmap("D:\\NAM_1\\Kythuatlaptrinh\\K25411_KTLT\\dang_nhap\\ui\\../images/logo.png"))
+        self.logoLabel.setPixmap(QtGui.QPixmap("D:\\NAM_1\\Kythuatlaptrinh\\K25411_KTLT\\dang_nhap\\ui_Account\\../images/logo.png"))
         self.logoLabel.setScaledContents(True)
         self.logoLabel.setObjectName("logoLabel")
         self.titleLabel = QtWidgets.QLabel(parent=self.otpCard)

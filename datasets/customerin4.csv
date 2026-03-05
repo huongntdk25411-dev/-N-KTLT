@@ -1,9 +1,4 @@
-﻿Họ và tên,Email,Tên đăng nhập,Mật khẩu,Giới tính
-Trương Nguyễn Hồng Trân,truongnguyenhongtran@gmail.com,Trương Pinky,1234,Nữ
-Trân,tranchau@gmail.com,trân,1234,Nữ
-trân,trân@gmail.com,trân,trân,Nữ
-Họ và tên: Trân Trương,,,,
-Email: truongnguyenhongtran@gmail.com,,,,
-Tên đăng nhập: Trương Pinky,,,,
-Mật khẩu: tranchau123,,,,
-Giới tính: Nữ,,,,
+﻿Họ và tên,Email,Tên đăng nhập,Mật khẩu,Giới tính,Số điện thoại,Ngày sinh
+Trương Nguyễn Hồng,truongnguyenhongtran@gmail.com,Trương Pinky,1234,Nam,09786788,01/01/1999
+Trương Nguyễn,tranchau@gmail.com,trân,1234,Nữ,0879678888,08/01/2002
+trân,trân@gmail.com,trân,trân,Nữ,,
