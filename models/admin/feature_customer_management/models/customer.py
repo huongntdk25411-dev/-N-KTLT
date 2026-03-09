@@ -1,31 +1,30 @@
 import datetime
-
-
 class Customer:
-    def __init__(self,name,phone,email,concept,status,total_fee,deposited=0,location="",photographer="",note="",username="",password="",last_login=""):
+    def __init__(self,date,time,name,email,phone,concept,background="",place="",place_detail="",note="",service="",status=None,total_fee=None,deposited=0,photographer="",login_email="",password=""):
         # thông tin cá nhân cơ bản
         self.name=name
         self.phone=phone
         self.email=email
-        # thông tin đặt lịch
+        # thông tin gói chụp
         self.concept=concept
         self.status=status
-        self.total_fee=total_fee
-        self.deposited=deposited
-        self.location=location
-        self.photographer=photographer
+        self.background = background
+        self.place = place
+        self.place_detail = place_detail
         self.note=note
+        self.service=service
+        # thông tin lịch đặt
+        self.date=date
+        self.time=time
+        self.total_fee=float(total_fee)
+        self.deposited=float(deposited)
+        self.unpaid()
+        self.photographer=photographer
         # thông tin hồ sơ KH trên hệ thống
-        self.username=username
+        self.login_email=login_email
         self.password=password
-        self.last_login=last_login
+
     def unpaid(self): #tiền chưa thanh toán
-        return self.total_fee - self.deposited
+        return float(self.total_fee) - float(self.deposited)
     def to_dict(self): # chuyển object thành dict để lưu file json
         return self.__dict__
-    def get_last_login_display(self):
-        try:
-            dt = datetime.datetime.fromisoformat(self.last_login)
-            return dt.strftime("%d/%m/%Y %H:%M:%S")
-        except:
-            return self.last_login

@@ -374,6 +374,7 @@ class MainWindowEx(QMainWindow, Ui_MainWindow):
         self.lblPhone.setText(self.current_user_data.get("Số điện thoại", ""))
         self.lblDOB.setText(self.current_user_data.get("Ngày sinh", ""))
         self.lblGender.setText(self.current_user_data.get("Giới tính", ""))
+        self.labelUserName.setText(self.current_user_data.get("Họ và tên",""))
 
     # ================= DELETE ACCOUNT =================
 
