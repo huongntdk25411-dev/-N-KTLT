@@ -6,7 +6,7 @@ from PyQt6.QtWidgets import QVBoxLayout
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 
-from models.admin.statistic_customer.MainWindow import Ui_MainWindow
+from models.admin.statistic_customer.ui.MainWindow import Ui_MainWindow
 
 
 class MainWindowEx(Ui_MainWindow):
@@ -26,13 +26,13 @@ class MainWindowEx(Ui_MainWindow):
     def show(self):
         self.MainWindow.show()
 
-# ==============================
+# ===============================
 # LOAD DATA
-# ==============================
+# ===============================
 
     def loadData(self):
 
-        with open("../data/bookings.json", "r", encoding="utf-8") as f:
+        with open('../data/bookings.json', "r", encoding="utf-8") as f:
             data = json.load(f)
 
         self.df = pd.DataFrame(data)
@@ -48,36 +48,31 @@ class MainWindowEx(Ui_MainWindow):
         ).dt.hour
 
 
-# ==============================
+# ===============================
 # KPI DASHBOARD
-# ==============================
+# ===============================
 
     def showKPIs(self):
 
         today = pd.Timestamp.today().normalize()
 
-        # tổng booking
         total_booking = len(self.df)
 
-        # booking hôm nay
-        today_booking = len(self.df[self.df["date"] == today])
+        today_booking = len(
+            self.df[self.df["date"] == today]
+        )
 
-        # booking tuần
         current_week = today.isocalendar().week
+
         week_booking = len(
             self.df[self.df["date"].dt.isocalendar().week == current_week]
         )
 
-        # địa điểm phổ biến
         popular_location = self.df["place"].value_counts().idxmax()
 
-        # concept phổ biến
         popular_concept = self.df["concept"].value_counts().idxmax()
 
-        # giờ phổ biến
         popular_hour = self.df["hour"].mode()[0]
-
-        # hiển thị lên UI
 
         self.labelTotalBookingDesc.setText(str(total_booking))
         self.labelTodayBookingDesc.setText(str(today_booking))
@@ -88,41 +83,91 @@ class MainWindowEx(Ui_MainWindow):
         self.labelPopularTimeDesc.setText(f"{popular_hour}:00")
 
 
-# ==============================
-# CHARTS
-# ==============================
+# ===============================
+# CHART CONTROLLER
+# ===============================
 
     def showCharts(self):
 
         self.showWeeklyChart()
         self.showConceptChart()
-
-
-# ==============================
-# WEEKLY BOOKING CHART
-# ==============================
+# ===============================
+# BAR CHART BOOKING PER WEEK
+# ===============================
 
     def showWeeklyChart(self):
 
-        self.df["week"] = self.df["date"].dt.isocalendar().week
+        today = pd.Timestamp.today()
+        current_week = today.isocalendar().week
 
-        weekly = self.df.groupby("week").size()
+        last_week_df = self.df[
+            self.df["date"].dt.isocalendar().week == current_week - 1
+            ]
 
-        figure = Figure()
+        # lấy thứ trong tuần
+        daily = last_week_df.groupby(
+            last_week_df["date"].dt.day_name()
+        ).size()
+
+        order = [
+            "Monday", "Tuesday", "Wednesday",
+            "Thursday", "Friday", "Saturday", "Sunday"
+        ]
+
+        daily = daily.reindex(order, fill_value=0)
+
+        # label hiển thị ngắn
+        labels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+
+        figure = Figure(figsize=(6, 4))
         canvas = FigureCanvas(figure)
 
         ax = figure.add_subplot(111)
 
-        sns.lineplot(
-            x=weekly.index,
-            y=weekly.values,
-            marker="o",
-            ax=ax
+        colors = [
+            "#4DB6E2", "#64B5F6", "#81C784",
+            "#FFD54F", "#FFB74D", "#E57373", "#BA68C8"
+        ]
+
+        bars = ax.bar(
+            labels,
+            daily.values,
+            color=colors,
+            width=0.6
         )
 
-        ax.set_title("Số lượng booking theo tuần")
-        ax.set_xlabel("Tuần")
-        ax.set_ylabel("Số booking")
+        # hiển thị số trên cột
+        for bar in bars:
+            height = bar.get_height()
+
+            ax.text(
+                bar.get_x() + bar.get_width() / 2,
+                height + 0.1,
+                int(height),
+                ha='center',
+                fontsize=10,
+                fontweight="bold"
+            )
+
+        ax.set_title(
+            "Số lượng người đặt lịch chụp ảnh trong tuần qua",
+            fontsize=14,
+            fontweight="bold",
+            pad=15
+        )
+
+        ax.set_xlabel("Ngày trong tuần", fontsize=11)
+        ax.set_ylabel("Số lượng người đặt lịch", fontsize=11)
+
+        ax.grid(axis="y", linestyle="--", alpha=0.5)
+
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
+
+        figure.patch.set_facecolor("white")
+        ax.set_facecolor("white")
+
+        figure.tight_layout()
 
         layout = self.groupBoxWeeklyBooking.layout()
 
@@ -131,28 +176,68 @@ class MainWindowEx(Ui_MainWindow):
             self.groupBoxWeeklyBooking.setLayout(layout)
 
         layout.addWidget(canvas)
-
-
-# ==============================
-# CONCEPT PIE CHART
-# ==============================
+# ===============================
+# PIE CHART CONCEPT
+# ===============================
 
     def showConceptChart(self):
 
         concept = self.df["concept"].value_counts()
+        labels = [
+            "Ảnh nhóm",
+            "HSSV\n(Kỷ yếu)",
+            "Sự kiện",
+            "Gia đình",
+            "Ảnh thẻ",
+            "Cặp đôi",
+            "Cá nhân"
+        ]
 
-        figure = Figure()
+        figure = Figure(figsize=(5, 4))
         canvas = FigureCanvas(figure)
 
         ax = figure.add_subplot(111)
 
-        ax.pie(
+        colors = [
+            "#4DB6E2",
+            "#81C784",
+            "#FFD54F",
+            "#FF8A65",
+            "#BA68C8",
+            "#90A4AE",
+            "#F06292"
+        ]
+
+        wedges, texts, autotexts = ax.pie(
             concept.values,
-            labels=concept.index,
-            autopct="%1.1f%%"
+            labels=labels[:len(concept)],
+            autopct="%1.1f%%",
+            startangle=90,
+            colors=colors[:len(concept)],
+            pctdistance=0.75,
+            wedgeprops={
+                "edgecolor": "white",
+                "linewidth": 2
+            }
         )
 
-        ax.set_title("Tỉ lệ concept được đặt")
+        # chỉnh font %
+        for autotext in autotexts:
+            autotext.set_fontsize(10)
+            autotext.set_fontweight("bold")
+
+        ax.set_title(
+            "Tỷ lệ concept được đặt",
+            fontsize=14,
+            fontweight="bold",
+            pad=15
+        )
+
+        ax.axis("equal")
+
+        figure.patch.set_facecolor("white")
+
+        figure.tight_layout()
 
         layout = self.groupBox_4.layout()
 
@@ -161,3 +246,4 @@ class MainWindowEx(Ui_MainWindow):
             self.groupBox_4.setLayout(layout)
 
         layout.addWidget(canvas)
+
